@@ -61,8 +61,6 @@ else:
 # Esperar 2 segundos
 time.sleep(2)
 
-# Eliminar la foto capturada del sistema
-os.remove(filepath)
 
 # Borrar la carpeta AppData si está vacía
 if len(os.listdir(appdata_dir)) == 0:
